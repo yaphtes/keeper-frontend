@@ -1,0 +1,132 @@
+@import "~sass/mixins";
+@import "~sass/variables";
+
+.card-editing {
+    &__banner {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        background-color: black;
+        opacity: 0.5;
+    }
+
+    &__buttons-area {
+        margin-top: 10px;
+        position: absolute;
+        bottom: 3px;
+        left: 20px;
+        button {
+            padding: 5px;
+            @include btn-reset;
+            @include button-animations;
+            margin: 0;
+            display: inline-block;
+            i {
+                font-size: 20px;
+                color: #7d7d7d;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &__component {
+        width: 600px;
+        position: fixed;
+        top: 20vh;
+        left: calc(50% - 300px);
+        background-color: #fff;
+        z-index: 3;
+        font: 400 15px/45px $main-regular-font;
+        color: #7c7c7c;
+        padding-left: 20px;
+        padding-right: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        box-shadow: 0 3px 16px rgba(0, 0, 0, 0.24);
+        border-radius: 2px;
+        &:not(.is-open) span {
+            cursor: text;
+        }
+        &.is-open {
+            min-height: 148px;
+            align-items: flex-start;
+        }
+
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            padding-right: 40px;
+            padding-bottom: 50px;
+            padding-top: 5px;
+            justify-content: space-between;
+            .titlte, .text {
+                @include input-reset;
+                margin: 0;
+                resize: none;
+                padding-bottom: 7px;
+            }
+
+            .title {
+                font: 700 16px/2.5em $main-bold-font;
+                color: #7c7c7c;
+                border: none;
+                outline: none;
+            }
+
+            .text {
+                color: #7c7c7c;
+                font: 400 15px/1.618em Roboto;
+            }
+
+            .submit {
+                @include btn-reset;
+                @include button-animations;
+                padding: 5px;
+                font: 400 13px/1em Roboto;
+                color: #212121;
+                text-transform: uppercase;
+                position: absolute;
+                right: 30px;
+                bottom: 17px;
+                padding: 5px;
+                margin: 0;
+            }
+        }
+
+        .insert-photo {
+            @include btn-reset;
+            @include button-animations;
+            padding: 5px;
+            margin: 0;
+            border-radius: 2px;
+            i {
+                vertical-align: middle;
+                font-size: 20px;
+                color: #7d7d7d;
+            }
+        }
+
+        .favorite {
+            @include btn-reset;
+            @include button-animations;
+            padding: 5px;
+            margin: 0;
+            border-radius: 2px;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            i {
+                vertical-align: middle;
+                font-size: 20px;
+                color: #7d7d7d;
+            }
+        }
+    }
+}

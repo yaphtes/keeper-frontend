@@ -1,0 +1,100 @@
+@import "~sass/mixins";
+@import "~sass/variables";
+
+.profileEdit {
+    padding-top: 37px;
+    width: 780px;
+    box-shadow: 0 1px 7px rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    background-color: #fff;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-bottom: 44px;
+
+    &__title {
+        text-align: center;
+        color: #4c4c4c;
+        font: 400 18px/30px Roboto;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 284px;
+        margin-top: 60px;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+
+        & [type=submit] {
+            @include btn-reset;
+            border-radius: 17px;
+            background-color: $main-color;
+            margin-top: 40px;
+            width: 170px;
+            height: 35px;
+            color: #fff;
+            font: 400 14px/35px Roboto;
+            &:active {
+                transform: translateY(2px);
+            }
+        }
+
+        input {
+            @include input-reset;
+            height: 49px;
+            font: 400 16px/24px Roboto;
+            width: 100%;
+            color: #4c4c4c;
+            border-bottom: 1px solid $main-color;
+        }
+
+        .username,
+        .email,
+        .password,
+        .confirm-password {
+            text-align: left;
+            position: relative;
+            margin-bottom: 30px;
+            &:before {
+                display: block;
+                position: relative;
+                color: $main-color;
+                font: 400 13px/1em Roboto;
+            }
+        }
+
+        .username:before {
+            content: 'Имя пользователя';
+        }
+
+        .email:before {
+            content: 'Email';
+        }
+
+        .password:before {
+            content: 'Пароль';
+        }
+
+        .confirm-password:before {
+            content: 'Пароль еще раз';
+        }
+    }
+
+    &__cancel {
+        display: inline-block;
+        text-decoration: none;
+        color: #4c4c4c;
+        font: 400 14px/1em Roboto;
+        &:hover {
+            text-decoration: underline;
+        }
+        &:visited {
+            color: #4c4c4c;
+        }
+    }
+}

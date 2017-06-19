@@ -1,0 +1,67 @@
+@import '~sass/mixins';
+@import '~sass/variables';
+
+.menu {
+    position: absolute;
+    top: 75px;
+    bottom: 0;
+    margin: 0;
+    margin-left: -280px;
+    padding: 0;
+    width: 280px;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.04);
+    background-color: #fff;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    transition: margin-left .25s cubic-bezier(0.4,0.0,0.2,1),visibility 0s linear 0s;
+
+    &.is-open {
+        margin-left: 0px;
+    }
+
+    &__main-area,
+    &__settings-area,
+    &__archive-area,
+    &__tags-area {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+
+        button {
+            @include btn-reset;
+            @include button-animations;
+            margin: 0;
+            position: relative;
+            cursor: pointer;
+            text-align: left;
+            padding-left: 50px;
+            font: 400 13px/34px Roboto;
+            color: #5e5e5e;
+
+            &:disabled {
+                opacity: 0.5;
+            }
+
+            i {
+                position: absolute;
+                left: 5px;
+                color: $icon-color;
+                font-size: 20px;
+                top: 9px;
+            }
+        }
+    }
+
+    hr {
+        display: block;
+        width: 280px;
+        height: 2px;
+        border: 0;
+        margin-left: -30px;
+        background-color: #e6e6e6;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}

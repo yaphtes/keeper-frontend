@@ -1,0 +1,25 @@
+{
+    "user": {
+        "_id": "",
+        "cards": [],
+        "password": "",
+        "username": "",
+        "email": "",
+        "avatarUrl": "",
+        "avatarBlob": null
+    },
+
+    "filter": "",
+
+    "editingCard": {
+        "isOpen": false,
+        "data": {}
+    },
+
+    "fetching": false,
+
+    "ui": {
+        "menuIsOpen": false,
+        "createCardIsOpen": false
+    }
+}

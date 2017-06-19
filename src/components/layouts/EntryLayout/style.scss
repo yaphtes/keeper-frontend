@@ -1,0 +1,27 @@
+@import '~sass/mixins';
+
+
+.entry-layout {
+    width: 600px;
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 10vh;
+
+    &__title {
+        color: #9e9e9e;
+        font-family: ComfortaaBold;
+        font-size: 50px;
+        margin: 0;
+        margin-bottom: 14px;
+        text-align: center;
+    }
+
+    &__subtitle {
+        color: #9e9e9e;
+        font-family: Roboto;
+        font-size: 18px;
+        text-align: center;
+        margin: 0;
+        margin-bottom: 53px;
+    }
+}

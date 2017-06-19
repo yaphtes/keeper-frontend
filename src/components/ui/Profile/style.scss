@@ -1,0 +1,69 @@
+@import "~sass/variables";
+@import "~sass/mixins";
+
+.profile {
+    padding-top: 40px;
+    padding-bottom: 68px;
+    max-width: 780px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 1px 7px rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    background-color: #fff;
+    transition: animation();
+
+    &__avatar {
+        margin: 0 auto;
+        background-color: $main-color;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 27px;
+        cursor: pointer;
+        overflow: hidden;
+
+        img {
+            display: block;
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        form { display: none; }
+    }
+
+    &__username {
+        text-align: center;
+        color: #4c4c4c;
+        font: 400 18px/30px Roboto;
+        margin-bottom: 36px;
+    }
+
+    &__email {
+        text-align: center;
+        font: 400 16px/30px Roboto;
+        color: #4c4c4c;
+        margin-bottom: 36px;
+        i {
+            margin-left: -12px;
+            margin-right: 12px;
+            color: #cfd1d4;
+            font-size: 20px;
+            vertical-align: middle;
+        }
+    }
+
+    &__edit-btn {
+        @include btn-reset;
+        width: 170px;
+        height: 35px;
+        border-radius: 17px;
+        background-color: $main-color;
+        font: 400 14px/35px Roboto;
+        color: #fff;
+        &:active {
+            transform: translateY(2px);
+        }
+    }
+}

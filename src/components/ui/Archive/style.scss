@@ -1,0 +1,21 @@
+@import "~sass/variables";
+
+.archive {
+    &__title {
+        text-align: center;
+        padding-top: 40px;
+        font: italic 700 17px/1em $main-bold-font;
+    }
+
+    &__empty-field {
+        margin-top: 20vh;
+        text-align: center;
+        color: #D6D6D6;
+        font: 400 20px/1em $main-regular-font;
+        user-select: none;
+
+        i {
+            font-size: 200px;
+        }
+    }
+}

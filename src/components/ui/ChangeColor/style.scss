@@ -1,0 +1,74 @@
+@import "~sass/variables";
+@import "~sass/mixins";
+
+.change-color {
+    width: 145px;
+    height: 75px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: absolute;
+    bottom: 50px;
+    left: 15px;
+    z-index: 3;
+
+    .row {
+        height: 50%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__variant {
+        @include btn-reset;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        text-align: center;
+        padding: 0;
+
+        i {
+            font-size: 16px;
+            color: #7d7d7d;
+        }
+
+        &.white {
+            border: 1px solid #d6d6d6;
+            background-color: $white;
+        }
+
+        &.yellow {
+            background-color: $yellow;
+        }
+
+        &.red {
+            background-color: $red;
+        }
+
+        &.pink {
+            background-color: $pink;
+        }
+
+        &.grey {
+            background-color: $grey;
+        }
+
+        &.sky {
+            background-color: $sky;
+        }
+
+        &.green {
+            background-color: $green;
+        }
+
+        &.blue {
+            background-color: $blue;
+        }
+    }
+}

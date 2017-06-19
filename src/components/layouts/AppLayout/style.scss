@@ -1,0 +1,15 @@
+@import '~sass/mixins';
+@import '~sass/variables';
+$menu-width: 280px;
+
+.content {
+    width: 100%;
+    transition: transform 0.25s cubic(), width 0.25s cubic();
+    padding-left: 30px;
+    padding-right: 30px;
+
+    &.menu-is-open {
+        width: calc(100% - 280px);
+        transform: translateX($menu-width);
+    }
+}

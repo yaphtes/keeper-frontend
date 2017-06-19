@@ -1,0 +1,122 @@
+@import "~sass/mixins";
+@import "~sass/variables";
+
+.create-card {
+    width: 600px;
+    background-color: #fff;
+    min-height: 45px;
+    margin: 0 auto;
+    box-shadow: 0 1px 7px rgba(0, 0, 0, 0.08);
+    border-radius: 2px;
+    font: 400 15px/45px $main-regular-font;
+    color: #7c7c7c;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    position: relative;
+    transition: box-shadow 0.25s cubic-bezier(0.4,0.0,0.2,1);
+    &:not(.is-open) {
+        cursor: text;
+    }
+    &.is-open {
+        min-height: 148px;
+        align-items: flex-start;
+        box-shadow: 0 1px 13px rgba(0, 0, 0, 0.17);
+    }
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        padding-right: 40px;
+        padding-bottom: 45px;
+        padding-top: 5px;
+        justify-content: space-between;
+        .titlte, .text {
+            @include input-reset;
+            margin: 0;
+            resize: none;
+            padding-bottom: 7px;
+        }
+
+        .title {
+            font: 700 16px/2.5em $main-bold-font;
+            color: #7c7c7c;
+            border: none;
+            outline: none;
+        }
+
+        .text {
+            color: #7c7c7c;
+            font: 400 15px/1.618em Roboto;
+        }
+
+        .submit {
+            @include btn-reset;
+            @include button-animations;
+            padding: 5px;
+            font: 400 13px/1em Roboto;
+            color: #212121;
+            text-transform: uppercase;
+            position: absolute;
+            right: 30px;
+            bottom: 17px;
+            padding: 5px;
+            margin: 0;
+        }
+    }
+
+    &__buttons-area {
+        margin-top: 10px;
+        position: absolute;
+        bottom: 3px;
+        left: 20px;
+        button {
+            padding: 5px;
+            @include btn-reset;
+            @include button-animations;
+            margin: 0;
+            display: inline-block;
+            i {
+                font-size: 20px;
+                color: #7d7d7d;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .insert-photo {
+        @include btn-reset;
+        @include button-animations;
+        padding: 5px;
+        margin: 0;
+        border-radius: 2px;
+        i {
+            vertical-align: middle;
+            font-size: 20px;
+            color: #7d7d7d;
+        }
+    }
+
+    .favorite {
+        @include btn-reset;
+        @include button-animations;
+        padding: 5px;
+        margin: 0;
+        border-radius: 2px;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        i {
+            vertical-align: middle;
+            font-size: 20px;
+            color: #7d7d7d;
+        }
+    }
+}

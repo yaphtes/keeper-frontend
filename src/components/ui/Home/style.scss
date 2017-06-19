@@ -1,0 +1,16 @@
+@import "~sass/mixins";
+@import "~sass/variables";
+
+.home {
+    margin-top: 40px;
+
+    &__type {
+        max-width: 830px;
+        padding-left: 25px;
+        font: 400 13px/34px $main-regular-font;
+        color: #5e5e5e;
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

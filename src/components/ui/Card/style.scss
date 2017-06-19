@@ -1,0 +1,67 @@
+@import "~sass/mixins";
+@import "~sass/variables";
+
+.card {
+    width: 250px;
+    box-shadow: 0 1px 7px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+    border-radius: 2px;
+    padding-top: 20px;
+    padding-right: 26px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    transition: box-shadow 0.1s ease-in;
+    transition: transform .25s cubic-bezier(0.4,0.0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0.0,0.2,1);
+    position: relative;
+
+    &:hover {
+        box-shadow: 0 1px 13px rgba(0, 0, 0, 0.17);
+    }
+
+    &__add-to-favorite {
+        @include btn-reset;
+        @include button-animations;
+        border-radius: 2px;
+        margin: 0;
+        padding: 5px;
+        position: absolute;
+        right: 7px;
+        top: 7px;
+        color: #7d7d7d;
+        i {
+            font-size: 20px;
+            vertical-align: middle;
+        }
+    }
+
+    &__title {
+        font: 700 16px/1.4em $main-bold-font;
+        margin-bottom: 10px;
+    }
+
+    &__text {
+        color: #282828;
+        font: 400 14px/24px $main-regular-font;
+        word-wrap: break-word;
+    }
+
+    &__menu {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        height: 35px;
+        margin-top: 25px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        button {
+            @include btn-reset;
+            @include button-animations;
+            margin: 0;
+        }
+        button i {
+            font-size: 20px;
+            line-height: 25px;
+            color: $icon-color;
+        }
+    }
+}

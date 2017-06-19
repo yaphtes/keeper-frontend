@@ -1,0 +1,50 @@
+@mixin font-face($name) {
+    @font-face {
+        font-family: $name;
+        src: url("/fonts/#{$name}/#{$name}.woff2") format("woff2"),
+            url("/fonts/#{$name}/#{$name}.woff") format("woff"),
+            url("/fonts/#{$name}/#{$name}.ttf") format("truetype");
+    }
+}
+
+@mixin btn-reset {
+    display: block;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+    margin: 0 auto;
+    background-color: transparent;
+}
+
+@mixin input-reset {
+    display: block;
+    border: 0;
+    outline: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+@mixin anchor-reset {
+    display: inline-block;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+@mixin button-animations {
+    transition: background-color 0.09s ease-out;
+    &:hover {
+        background-color: #eee
+    }
+    &:active {
+        background-color: #ddd;
+    }
+}
+
+@function cubic() {
+    @return cubic-bezier(0.4,0.0,0.2,1);
+}
+
+@include font-face(ComfortaaBold);
+@include font-face(Roboto);
+@include font-face(RobotoBold);

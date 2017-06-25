@@ -3,7 +3,6 @@ import fetching from './fetching';
 import ui from './ui';
 import editingCard from './editingCard';
 import filter from './filter';
-import { routerReducer } from 'react-router-redux';
 
 export default function reducer(state = {}, action) {
     return {
@@ -11,7 +10,6 @@ export default function reducer(state = {}, action) {
         fetching: fetching(state.fetching, action),
         ui: ui(state.ui, action),
         editingCard: editingCard(state.editingCard, action),
-        routing: routerReducer(state.routing, action),
         filter: filter(state.filter, action)
     };
 }

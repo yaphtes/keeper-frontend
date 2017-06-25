@@ -1,10 +1,7 @@
 import React from 'react';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+// import { , Route, IndexRoute } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import store from 'store';
-import { syncHistoryWithStore } from 'react-router-redux';
-
-const history = syncHistoryWithStore(browserHistory, store);
-
 
 // Layouts
 import EntryLayout from 'layouts/EntryLayout';
@@ -21,7 +18,7 @@ import Trash from 'ui/Trash';
 import NotFound from 'ui/NotFound';
 
 export default (
-    <Router history={history}>
+    <Router history={browserHistory}>
         <Route path='/' component={AppLayout}>
             <IndexRoute component={Home} />
             <Route path='archive' component={Archive} />

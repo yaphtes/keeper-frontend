@@ -14,6 +14,7 @@ export default class ProfileEdit extends React.Component {
             _id: user._id,
             username: user.username,
             email: user.email,
+            currentPassword: '',
             password: user.password
         };
     }
@@ -27,12 +28,12 @@ export default class ProfileEdit extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        let user = this.props.user;
+        let user = { ...this.props.user };
         user._id = this.state._id;
         user.username = this.state.username
         user.email = this.state.email;
         user.password = this.state.password;
-
+        user.currentPassword = this.state.currentPassword;
 
         this.props.handleUpdateProfile(user);
     }
@@ -53,7 +54,7 @@ export default class ProfileEdit extends React.Component {
     }
 
     render() {
-        let { username, password, email } = this.props.user;
+        let { username, email } = this.props.user;
 
         return (
             <div className="profileEdit">
@@ -75,13 +76,20 @@ export default class ProfileEdit extends React.Component {
                             defaultValue={email}
                         />
                     </div>
+                    <div className="current-password">
+                        <span></span>
+                        <input
+                            type="password"
+                            onChange={event => this.setState({ currentPassword: event.target.value })}
+                        />
+                    </div>
                     <div className="password">
                         <span></span>
-                        <input type="password" defaultValue={password} ref="password" />
+                        <input type="password" ref="password" />
                     </div>
                     <div className="confirm-password">
                         <span></span>
-                        <input type="password" defaultValue={password} ref="confirmPassword" />
+                        <input type="password" ref="confirmPassword" />
                     </div>
                     <Button type="submit">Сохранить</Button>
                 </form>

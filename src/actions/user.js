@@ -65,7 +65,7 @@ export function userLoadAvatar(payload) {
 }
 
 export function updateUserProfile(user) {
-    return dispatch => {
+    return (dispatch, getState) => {
         dispatch(fetching(true));
         usersAPI.updateUserProfile(user)
             .then(res => {
@@ -74,13 +74,19 @@ export function updateUserProfile(user) {
                     dispatch(userDataReceived({}));
                     dispatch(fetching(false));
                     browserHistory.replace('/login');
-                    return Promise.reject(res.statusText);
+                    return Promise.reject(res);
                 } else if (res.status == 400) {
-                    user.email = '';
-                    dispatch(userDataReceived(user));
+                    let oldUser = getState().user;
+                    dispatch(userDataReceived(oldUser));
                     dispatch(fetching(false));
                     browserHistory.replace('/profile');
-                    return Promise.reject(res.statusText);
+                    return Promise.reject('400 email уже занят другим пользователем');
+                } else if (res.status == 409) {
+                    let oldUser = getState().user;
+                    dispatch(userDataReceived(oldUser));
+                    dispatch(fetching(false));
+                    browserHistory.replace('/profile');
+                    return Promise.reject('409 неправильный текущий пароль');
                 } else {
                     return res.json();
                 }
@@ -92,9 +98,7 @@ export function updateUserProfile(user) {
                 dispatch(fetching(false));
                 browserHistory.push('/profile');
             })
-            .catch(err => {
-                console.log('Error updateUserProfile:\n', err);
-            });
+            .catch(console.info);
     };
 }
 

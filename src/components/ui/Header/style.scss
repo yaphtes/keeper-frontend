@@ -13,11 +13,11 @@
     transition: background-color 0.3s cubic();
 
     &.with-archive {
-        background-color: #93a1d7;
+        background-color: #94a2d8;
     }
 
     &.with-trash {
-        background-color: #7eb3cc;
+        background-color: #98a4aa;
     }
 
     &--left {
@@ -47,6 +47,13 @@
     &__logo {
         color: #fff;
         font: 700 30px/1em ComfortaaBold;
+        &.is-archive {
+            font: 500 30px/1em $main-medium-font;
+        }
+
+        &.is-trash {
+            font: 500 30px/1em $main-medium-font;
+        }
     }
 
     &__searching {

@@ -67,6 +67,21 @@ export default class Header extends React.Component {
         }
     }
 
+    renderClassListByPath(path) {
+        let base = 'header__logo';
+        switch (path) {
+            case '/archive':
+                base += ' is-archive';
+                break;
+
+            case '/trash':
+                base += ' is-trash'
+                break;
+        }
+
+        return base;
+    }
+
     handleChangeFilter(event) {
         let value = event.target.value;
         this.setState({ filter: value }, () => {
@@ -94,7 +109,7 @@ export default class Header extends React.Component {
             <header ref="header" className="header">
                 <div className="header--left">
                     <Button onClick={this.props.handleToggleMenu} className="header__menu-btn" icon="menu" />
-                    <div className="header__logo">
+                    <div className={this.renderClassListByPath(pathname)}>
                         {this.renderTitleByPath(pathname)}
                     </div>
                     <div className="header__searching">

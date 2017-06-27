@@ -13,9 +13,7 @@ export default class MasonryLayout extends React.Component {
         window.onresize = () => {
             this.grid.mount();
         };
-        setTimeout(() => {
-            this.grid.mount();
-        }, 4);
+        this.grid.mount();
     }
 
     componentDidMount() {

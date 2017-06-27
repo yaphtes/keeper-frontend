@@ -26,6 +26,11 @@ export default class CreateCard extends React.Component {
         let card = { ...this.state };
         delete card.changeColorIsHidden;
         if (!card.text) return;
+        this.setState({
+            text: '',
+            title: '',
+            bgColor: 'rgb(255, 255, 255)',
+        });
         card.userId = this.props.userId;
 
         this.props.createCard(card);
@@ -65,10 +70,10 @@ export default class CreateCard extends React.Component {
     }
 
     renderWhenIsOpen() {
-        let { isFavorited, changeColorIsHidden, bgColor } = this.state;
+        let { isFavorited, changeColorIsHidden, bgColor, title, text } = this.state;
 
         return (
-            <div className="create-card is-open" style={{ backgroundColor: String(bgColor) }}>
+            <div ref="container" className="create-card is-open" style={{ backgroundColor: String(bgColor) }}>
                 {changeColorIsHidden ? null :
                     <ChangeColor
                         onMouseOver={this.handleChangeColorMouseOver.bind(this)}
@@ -88,6 +93,7 @@ export default class CreateCard extends React.Component {
                         placeholder="Введите заголовок"
                         onChange={event => this.setState({ title: event.target.value })}
                         style={{ backgroundColor: String(bgColor) }}
+                        value={title}
                     />
                     <Textarea
                         autoFocus
@@ -95,6 +101,7 @@ export default class CreateCard extends React.Component {
                         placeholder="Заметка..."
                         onChange={event => this.setState({ text: event.target.value })}
                         style={{ backgroundColor: String(bgColor) }}
+                        value={text}
                     />
                     <Button className="submit" type="submit">Готово</Button>
                 </form>

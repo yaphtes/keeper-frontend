@@ -9,7 +9,11 @@ export default class CreateCard extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
+        this.state = this.getInitialState();
+    }
+
+    getInitialState() {
+        return {
             changeColorIsHidden: true,
             title: '',
             text: '',
@@ -26,11 +30,7 @@ export default class CreateCard extends React.Component {
         let card = { ...this.state };
         delete card.changeColorIsHidden;
         if (!card.text) return;
-        this.setState({
-            text: '',
-            title: '',
-            bgColor: 'rgb(255, 255, 255)',
-        });
+        this.setState(this.getInitialState());
         card.userId = this.props.userId;
 
         this.props.createCard(card);

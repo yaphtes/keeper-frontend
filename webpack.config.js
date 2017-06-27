@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: './app',
@@ -28,7 +29,18 @@ module.exports = {
             },
             {
                 test: /\.s?css$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: ExtractTextPlugin.extract({
+                    use: [{
+                        loader: 'css-loader',
+                        options: {
+                            minimize: 'true'
+                        }
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }],
+                    fallback: 'style-loader'
+                })
             },
             {
                 test: /\.(eot|ttf|woff|woff2|svg)([\?]?.*)$/,
@@ -41,7 +53,7 @@ module.exports = {
         contentBase: path.join(__dirname, 'public'),
         publicPath: '/',
         historyApiFallback: true,
-        port: 8000,
+        port: 8080,
         proxy: {
             '/api': {
                 target: 'http://localhost:3000'
@@ -73,6 +85,7 @@ module.exports = {
     context: path.join(__dirname, 'src'),
 
     plugins: [
+        new ExtractTextPlugin('style.css'),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
         })

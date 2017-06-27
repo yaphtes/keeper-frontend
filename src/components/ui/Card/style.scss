@@ -10,8 +10,7 @@
     padding-right: 26px;
     padding-left: 15px;
     padding-bottom: 10px;
-    transition: box-shadow 0.1s ease-in;
-    transition: transform .25s cubic-bezier(0.4,0.0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0.0,0.2,1);
+    transition: transform 0.25s cubic-bezier(0.4,0.0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0.0,0.2,1);
     position: relative;
 
     &:hover {

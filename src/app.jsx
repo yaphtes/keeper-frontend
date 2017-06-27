@@ -6,7 +6,6 @@ import store from 'store';
 
 import 'normalize';
 import 'micro-reset';
-import 'material-design-icons-iconfont';
 
 ReactDOM.render((
     <Provider store={store}>

@@ -6,13 +6,14 @@ import './style.scss';
 export default class MasonryLayout extends React.Component {
     makeGrid() {
         this.grid = new Minigrid({
-            container: String('.' + this.props.className),
+            container: `.${this.props.className}`,
             item: '.card',
             gutter: 15
         });
         window.onresize = () => {
             this.grid.mount();
         };
+
         this.grid.mount();
     }
 

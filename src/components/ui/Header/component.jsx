@@ -1,5 +1,5 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 
 import './style.scss';
 import Button from 'ui/Button';
@@ -57,13 +57,13 @@ export default class Header extends React.Component {
     renderTitleByPath(path) {
         switch (path) {
             case '/archive':
-                return 'Архив';
+                return <Link to="/">Архив</Link>;
 
             case '/trash':
-                return 'Корзина';
+                return <Link to="/">Корзина</Link>;
 
             default:
-                return 'Keeper';
+                return <Link to="/">Keeper</Link>;
         }
     }
 

@@ -44,8 +44,9 @@
         }
     }
 
-    &__logo {
+    &__logo a {
         color: #fff;
+        text-decoration: none;
         font: 700 30px/1em ComfortaaBold;
         &.is-archive {
             font: 500 30px/1em $main-medium-font;

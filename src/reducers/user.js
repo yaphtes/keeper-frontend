@@ -10,11 +10,18 @@ import {
     CHANGE_BG_COLOR,
     UPDATE_CARD,
     USER_CHANGE_AVATAR,
-    LOAD_AVATAR_BY_URL
+    LOAD_AVATAR_BY_URL,
+    CLEAR_TRASH
 } from 'types';
 
 export default function user(state, action) {
     switch (action.type) {
+        case CLEAR_TRASH:
+            return {
+                ...state,
+                cards: state.cards.filter(card => !card.isDeleted)
+            };
+
         case LOAD_AVATAR_BY_URL:
             return {
                 ...state,

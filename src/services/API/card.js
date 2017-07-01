@@ -1,6 +1,22 @@
 import API from './API';
 
 class CardAPI extends API {
+    clearTrash() {
+        let request = new Request('/api/clear-trash', {
+            method: 'DELETE',
+            headers: new Headers({
+                'Content-Type': this.types.json,
+                token: localStorage.getItem('token')
+            })
+        });
+
+        return new Promise((resolve, reject) => {
+            fetch(request)
+                .then(resolve)
+                .catch(reject);
+        });
+    }
+
     update(card) {
         let headers = new Headers({
             'Content-Type': this.types.json,

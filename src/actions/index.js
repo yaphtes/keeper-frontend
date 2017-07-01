@@ -27,7 +27,8 @@ export {
     changeBgColor,
     openEditingCard,
     closeEditingCard,
-    updateCard
+    updateCard,
+    clearTrash
 } from './cards';
 
 export {

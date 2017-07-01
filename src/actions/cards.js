@@ -9,10 +9,29 @@ import {
     CHANGE_BG_COLOR,
     OPEN_EDITING_CARD,
     CLOSE_EDITING_CARD,
-    UPDATE_CARD
+    UPDATE_CARD,
+    CLEAR_TRASH
 } from './types';
 import { cardAPI } from 'services';
 import { mountMasonries } from './ui';
+
+export function clearTrash() {
+    return cardAPI.clearTrash()
+        .then(res => {
+            if (res.status == 200) {
+                return res.text();
+            } else {
+                return Promise.reject(res.status);
+            }
+        })
+        .then(() => {
+            console.log('cleared');
+            return { type: CLEAR_TRASH };
+        })
+        .catch(err => {
+            console.error('clearTrash error method:\n', err);
+        });
+}
 
 export function updateCard(card) {
     return cardAPI.update(card)

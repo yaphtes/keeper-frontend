@@ -1,11 +1,45 @@
 @import "~sass/variables";
+@import "~sass/mixins";
 
 .trash {
+    &__top-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 810px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 38px;
+        margin-bottom: 23px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
     &__title {
         text-align: center;
-        padding-top: 40px;
         font: italic 700 17px/1em $main-bold-font;
         color: #7c7c7c;
+    }
+
+    &__clear-btn {
+        @include btn-reset;
+        @include button-animations;
+        margin: 0;
+        width: 160px;
+        height: 30px;
+        box-shadow: 0 1px 7px rgba(0, 0, 0, 0.08);
+        border-radius: 2px;
+        background-color: $main-color;
+        font: 400 13px/30px $main-regular-font;
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+        &:hover {
+            background-color: $main-color;
+        }
+        &:active {
+            transform: translateY(3px);
+        }
     }
 
     &__empty-field {
